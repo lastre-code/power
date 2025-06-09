@@ -1,0 +1,32 @@
+import pandas as pd
+from sqlalchemy import create_engine
+
+# Datos de conexión
+usuario = 'root'
+contraseña = 'Grace07431*'  # actualiza si cambiaste la clave
+host = 'localhost'
+bd = 'murder'
+
+# Crear conexión con SQLAlchemy
+engine = create_engine(f"mysql+pymysql://{usuario}:{contraseña}@{host}/{bd}")
+
+# Cargar las tablas a power bi
+crime_scene_report = pd.read_sql("SELECT * FROM crime_scene_report", engine)
+
+drivers_license = pd.read_sql("SELECT * FROM drivers_license", engine)
+
+facebook_event_checkin = pd.read_sql("SELECT * FROM facebook_event_checkin", engine)
+
+get_fit_now_check_in = pd.read_sql("SELECT * FROM get_fit_now_check_in", engine)
+
+get_fit_now_member = pd.read_sql("SELECT * FROM get_fit_now_member", engine)
+
+income = pd.read_sql("SELECT * FROM income", engine)
+
+interview = pd.read_sql("SELECT * FROM interview", engine)
+
+person = pd.read_sql("SELECT * FROM person", engine)
+
+solution = pd.read_sql("SELECT * FROM solution", engine)
+
+
